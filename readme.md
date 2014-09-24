@@ -10,7 +10,7 @@
 
 ### 1、使用指南
 
-**1.1 API: 只有一个公开的接口：`wechat`，接口可以归结为「分享」+ 「操作」两种类型**
+**一、唯一接口：`wechat`，有「分享」+ 「操作」两种类型**
 
 ```js
 // 分享
@@ -29,7 +29,7 @@ wechat('network', callback);          // 查看用户当前网络
 // 4. wwan 2g/3g
 ```
 
-**1.2 DATA: `data` 「属性」支持函数**
+**二、`data` 「属性」支持函数**
 
 因为有些数据是需要拼接，或者在点击分享按钮的时候可能才存在的，但是又不想写很麻烦时机判断，这里 `data` 中支持传入函数，比如：
 
@@ -50,13 +50,16 @@ var getTitile = function() {
 
 // 这个数据 ，最终 wechat.js 会自动转换
 var data = {
+  // 这里需要特别说明的是，建议不要用新浪微博的图片地址，要么你试试，哈哈
   'img': '图片 URL',
+  
   'link': '链接',
   'desc': '描述',
   'title': getTitle()
 };
+```
 
-**1.3 CALLBACK: 你也可以传入一个回调函数**
+**三、回调**
 
 ```js
 var callback = function() {
@@ -64,6 +67,8 @@ var callback = function() {
   // 也有一些是很恶心的
   console && console.log(argument);
 };
+
+wechat('timeline' data, callback);
 ```
 
 ### 2、授权
