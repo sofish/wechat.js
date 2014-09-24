@@ -5,8 +5,6 @@
 
   // map 掉恶心的不统一的 api
   var Wechat = function() {
-    this.calls = [];
-
     this.map = {
       events: {
         friend: 'menu:share:appmessage',
@@ -47,9 +45,8 @@
   Wechat.prototype._make = function _make(obj) {
     if(typeof WeixinJSBridge === 'undefined') {
 
-      this.calls.push(obj);
-
       var make = function() {
+        alert(1);
         return _make(obj);
       };
 
