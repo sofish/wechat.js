@@ -1,5 +1,5 @@
-/*! CopyRight: sofish http://github.com/sofish/wechat.js, Licensed under: MIT License */
-;(function(global, doc, wechat) {
+/*! CopyRight: sofish http://github.com/sofish/wechat.js, Licensed under: MIT */
+;(function(global, doc) {
 
   var noop = function() {};
 
@@ -113,6 +113,9 @@
   };
 
   // 对外只分享一个接口，不过会返回本身，可以有备用
-  global.wechat = wechat || (new Wechat()).on;
+  global.wechat = global.wechat || function() {
+    var w = new Wechat();
+    return w.on.apply(w, arguments);
+  }
 
-})(window, document, wechat);
+})(window, document);
