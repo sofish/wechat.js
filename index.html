@@ -28,7 +28,9 @@
 // 导入的数据
 var data = {
   app: '',
-  img: 'http://ww4.sinaimg.cn/large/61b90cbegw1eknqctwzbhj2097097jrx.jpg',
+  img: function() {
+    return 'http://appled.cc/candy-theme-flat/images/share.jpg'
+  },
   link: 'http://sofish.github.io/wechat.js/',
   desc: '用于处理微信分享的等小功能的 js 库',
   title: 'wechat.js'
