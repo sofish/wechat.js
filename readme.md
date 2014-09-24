@@ -1,12 +1,10 @@
 # wechat.js
 
-> 下面是 API 详解，使用可参考上面 DEMO 的源代码。微信的 API 是有点恶心的，也不断在变，如果发现问题请给提 issue 或者 pull-request 吧。
-
 微信打开 DEMO 地址：[http://sofish.github.io/wechat.js](http://sofish.github.io/wechat.js/)，或者扫一扫下面的二维码进行分享：
 
 ![sofish/wechat.js](http://ww4.sinaimg.cn/large/61b90cbegw1eknqgwosn6j203p03pglk.jpg)
 
-
+> 下面是 API 详解，使用可参考上面 DEMO 的源代码。微信的 API 是有点恶心的，也不断在变，如果发现问题请给提 issue 或者 pull-request 吧。
 
 ### 1、使用指南
 
