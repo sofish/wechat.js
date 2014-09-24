@@ -13,6 +13,8 @@
 <body class="typo">
 <h1>Wechat.js</h1>
 
+<p>当前使用的网络是：<code id="network">...</code></p>
+
 <p>用微信扫一扫下面的 url，然后分享到朋友圈</p>
 
 <p>
@@ -44,5 +46,31 @@ wechat('hideToolbar', callback);      // 隐藏底部菜单
 wechat('hideOptionMenu', callback);   // 隐藏右上角分享按钮
 </pre>
 
+<script src="wechat.js"></script>
+<script>
+// 导入的数据
+var data = {
+  'app': '',
+  'img': 'http://ww4.sinaimg.cn/large/61b90cbegw1eknqctwzbhj2097097jrx.jpg',
+  'link': 'http://sofish.github.io/wechat.js/',
+  'desc': '用于处理微信分享的 js 小库',
+  'title': 'wechat.js'
+};
+
+var callback = function(res) {
+  alert(JSON.stringify(res));
+};
+
+// 分享
+wechat('friend', data, callback);     // 朋友
+wechat('timeline', data, callback);   // 朋友圈
+wechat('weibo', data, callback);      // 微博
+
+// 查看用户当前网络
+wechat('network', function(res) {
+  if(res.err_msg) alert(err_msg);
+  document.getElementById('network').innerHTML = res.network_type;
+});
+</script>
 </body>
 </html>
