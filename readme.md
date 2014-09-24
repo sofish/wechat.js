@@ -1,5 +1,12 @@
 # Wechat.js
 
+URL DEMO: [http://sofish.github.io/wechat.js](http://sofish.github.io/wechat.js/)
+
+或者扫一扫下面的二维码进行分享：
+
+![sofish/wechat.js](http://ww4.sinaimg.cn/large/61b90cbegw1eknqgwosn6j203p03pglk.jpg)
+
+
 ### 1、使用指南
 
 ```js
