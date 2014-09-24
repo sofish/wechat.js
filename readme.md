@@ -29,9 +29,14 @@ wechat('timeline', data, callback);   // 朋友圈
 wechat('weibo', data, callback);      // 微博
 
 // 操作
-wechat('network', callback);          // 查看用户当前网络
 wechat('hideToolbar', callback);      // 隐藏底部菜单
 wechat('hideOptionMenu', callback);   // 隐藏右上角分享按钮
+
+wechat('network', callback);          // 查看用户当前网络
+// 1. wifi
+// 2. edge 非 wifi,包含 3G/2G
+// 3. fail 网络断开连接
+// 4. wwan 2g/3g
 ```
 
 ### 2、授权
