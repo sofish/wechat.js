@@ -1,30 +1,21 @@
 {
-  "name": "pen",
-  "version": "0.0.1",
-  "main": "src/pen.js",
+  "name": "wechat.js",
+  "version": "0.1",
+  "main": "wechat.js",
   "author": "sofish <sofish@icloud.com>",
-  "description": "enjoy live editing (+markdown) http://sofish.github.io/pen",
+  "description": "easy sharing on wechat http://sofish.github.io/wechat.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sofish/pen"
+    "url": "https://github.com/sofish/wechat.js"
   },
   "keywords": [
-    "editor",
-    "markdown",
-    "medium"
+    "wechat",
+    "sns",
+    "sharing"
   ],
   "license": {
     "type": "MIT",
-    "url": "https://github.com/sofish/pen/blob/master/license.txt"
+    "url": "https://github.com/sofish/wechat.js/blob/master/license.txt"
   },
-  "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.7.2",
-    "grunt-contrib-uglify": "~0.2.7",
-    "grunt-contrib-watch": "~0.5.3"
-  },
-  "scripts": {
-    "test": "grunt --verbose"
-  },
-  "readmeFilename": "README.md"
+  "readmeFilename": "readme.md"
 }
