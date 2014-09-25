@@ -66,7 +66,7 @@ var callback = function() {
   console && console.log(argument);
 };
 
-wechat('timeline' data, callback);
+wechat('timeline', data, callback);
 ```
 
 ### 2、授权
