@@ -19,6 +19,7 @@ wechat('weibo', data, callback);      // 微博
 // 操作
 wechat('hideToolbar', callback);      // 隐藏底部菜单
 wechat('hideOptionMenu', callback);   // 隐藏右上角分享按钮
+wechat('showOptionMenu', callback);   // 显示右上角分享按钮
 
 wechat('network', callback);          // 查看用户当前网络
 // 1. wifi
