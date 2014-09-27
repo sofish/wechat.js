@@ -21,7 +21,8 @@
       direct: {
         network: 'getNetworkType',
         hideToolbar: 'hideToolbar',
-        hideOptionMenu: 'hideOptionMenu'
+        hideOptionMenu: 'hideOptionMenu',
+        showOptionMenu: 'showOptionMenu'
       }
     };
   };
