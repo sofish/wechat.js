@@ -9,6 +9,7 @@
     body{padding:20px;}
     pre{margin:0 -20px;padding:30px 20px;font-size:14px;border:none;line-height:1;}
     code{color:#1a3;border:1px dashed #1a3;padding:1px 3px;}
+    .reval{float:right;}
   </style>
 </head>
 <body class="typo">
@@ -18,6 +19,8 @@
   当前使用的网络是：<code id="network">...</code>。
   用微信扫一扫下面的 url，然后分享到朋友圈:
 </p>
+
+<p><button onclick="toggle()">隐藏/显示分享按钮</button></p>
 
 <p><img src="http://ww4.sinaimg.cn/large/61b90cbegw1eknqctwzbhj2097097jrx.jpg" alt="sofish/wechat.js"/></p>
 
@@ -51,7 +54,15 @@ wechat('friend', data, callback);     // 朋友
 wechat('timeline', data, callback);   // 朋友圈
 wechat('weibo', data, callback);      // 微博
 
+//控制右上角菜单是否显示,防止敏感信息泄露
+var show = true;
+function toggle(){
+  var action = show ? 'hideOptionMenu' : 'showOptionMenu';
+  wechat(action);
+  show = !show;
+}
 
 </script>
+
 </body>
 </html>
