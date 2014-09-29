@@ -4,6 +4,17 @@
 
 ![sofish/wechat.js](http://ww4.sinaimg.cn/large/61b90cbegw1eknqgwosn6j203p03pglk.jpg)
 
+### 安装
+
+使用 bower 管理 `wechat.js` 的依赖：
+```bash
+$ bower install wechat.js --save
+```
+更新 `wechat.js` 依赖版本：
+```bash
+$ bower update
+```
+
 > 下面是 API 详解，使用可参考上面 DEMO 的源代码。微信的 API 是有点恶心的，也不断在变，如果发现问题请给提 issue 或者 pull-request 吧。
 
 ### 1、使用指南
