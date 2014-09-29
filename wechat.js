@@ -116,9 +116,18 @@
   // 对外只分享一个接口，不过会返回本身，可以有备用
   var wx = new Wechat();
 
-  global.wechat = global.wechat || function() {
+  // 创建唯一实例
+  var entry =  function() {
     return wx.on.apply(wx, arguments);
-  };
+  };  
+  
+  // 适配CMD
+  if (typeof exports !== 'undefined') { 
+    module.exports = exports = entry;
+  } else {
+    global.wechat = global.wechat || entry;
+  }
+  
 
   if(typeof WeixinJSBridge === 'undefined'){
     if(doc.addEventListener) {
