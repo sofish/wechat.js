@@ -8,6 +8,9 @@
     "type": "git",
     "url": "https://github.com/sofish/wechat.js"
   },
+  "spm": {
+    "main": "wechat.js"
+  },
   "keywords": [
     "wechat",
     "sns",
