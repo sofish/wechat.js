@@ -120,18 +120,21 @@
   var entry =  function() {
     return wx.on.apply(wx, arguments);
   };  
-  
-  if (typeof define === 'function') {
-    define(function() {
-      return entry;
-    })
-  } else if (typeof exports !== 'undefined' && module.exports) { 
+
+  //spm3 和 cortex 6.x 已经支持自动构建成module
+  if (typeof exports !== 'undefined' && module.exports) {
     module.exports = exports = entry;
+  } else if (typeof define === 'function' && define.cmd) {
+    define(function(require, exports, module) {
+      module.exports = exports = entry;
+    })
+  } else if (typeof define === 'function' && define.amd) {
+    define('wechat', [], entry);
   } else {
+    //浏览器端直接运行
     global.wechat = global.wechat || entry;
   }
   
-
   if(typeof WeixinJSBridge === 'undefined'){
     if(doc.addEventListener) {
       doc.addEventListener('WeixinJSBridgeReady', ready, false);
@@ -142,5 +145,4 @@
   } else {
     ready();
   }
-
 })(window, document);
