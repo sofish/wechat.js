@@ -121,8 +121,11 @@
     return wx.on.apply(wx, arguments);
   };  
   
-  // 适配CMD
-  if (typeof exports !== 'undefined') { 
+  if (typeof define === 'function') {
+    define(function() {
+      return entry;
+    })
+  } else if (typeof exports !== 'undefined' && module.exports) { 
     module.exports = exports = entry;
   } else {
     global.wechat = global.wechat || entry;
