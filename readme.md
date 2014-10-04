@@ -38,13 +38,13 @@ wechat('imagePreview', imgData, callback);  // 图片预览/查看大图
 //   current: 'linchao1.jpg',               // 要预览的当前张url
 //   urls: ['linchao1.jpg', 'linchao2.jpg'] //所有图片的url列表  
 // }
-wechat('sendEmail', emailData);              // 发送邮件
+wechat('sendEmail', emailData);             // 发送邮件
 // emailData = {
-//   title: "邮件标题",                        // 邮件标题
-//   content: "邮件内容"                       // 邮件内容
+//   title: "邮件标题",                       // 邮件标题
+//   content: "邮件内容"                      // 邮件内容
 // }
 
-wechat('network', callback);          // 查看用户当前网络
+wechat('network', callback);                // 查看用户当前网络
 // 1. wifi
 // 2. edge 非 wifi,包含 3G/2G
 // 3. fail 网络断开连接
