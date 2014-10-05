@@ -11,18 +11,23 @@
       events: {
         friend: 'menu:share:appmessage',
         timeline: 'menu:share:timeline',
-        weibo: 'menu:share:weibo'
+        weibo: 'menu:share:weibo',
+        email: 'email' // 分享到邮件
       },
       actions: {
         friend: 'sendAppMessage',
         timeline: 'shareTimeline',
-        weibo: 'shareWeibo'
+        weibo: 'shareWeibo',
+        email: 'email'
       },
       direct: {
         network: 'getNetworkType',
         hideToolbar: 'hideToolbar',
         hideOptionMenu: 'hideOptionMenu',
-        showOptionMenu: 'showOptionMenu'
+        showOptionMenu: 'showOptionMenu',
+        closeWebView: 'closeWindow',      // 关闭webview
+        scanQRCode: 'scanQRCode',         //跳转到扫码页面
+        imagePreview: 'imagePreview'      //图片预览/查看大图
       }
     };
   };
@@ -46,6 +51,7 @@
     return tmp;
   };
 
+
   // 处理数据接入
   Wechat.prototype._make = function(obj) {
     if(typeof WeixinJSBridge === 'undefined') return this.calls.push(obj);
@@ -62,7 +68,12 @@
       // network_type:edge 非wifi,包含3G/2G
       // network_type:fail 网络断开连接
       // network_type:wwan（2g或者3g）
-      if(name === 'network') return WeixinJSBridge.invoke(direct, {}, callback);
+      if(name === 'network') {
+        return WeixinJSBridge.invoke(direct, {}, callback);
+      // 图片预览/查看大图
+      } else if(name === 'imagePreview') {
+        return WeixinJSBridge.invoke(direct, data, callback);
+      }
 
       return WeixinJSBridge.call(direct, callback);
     }
@@ -78,6 +89,9 @@
 
       // Android 下有时候会需要 desc (*-.-)
       data.desc = data.title;
+    } else if(name === 'email') {
+      data.content = data.desc + ' ' + data.link;
+      return WeixinJSBridge.invoke('sendEmail', data, callback);
     }
 
     var that = this;
@@ -116,10 +130,25 @@
   // 对外只分享一个接口，不过会返回本身，可以有备用
   var wx = new Wechat();
 
-  global.wechat = global.wechat || function() {
+  // 创建唯一实例
+  var entry =  function() {
     return wx.on.apply(wx, arguments);
-  };
+  };  
 
+  //spm3 和 cortex 6.x 已经支持自动构建成module
+  if (typeof exports !== 'undefined' && module.exports) {
+    module.exports = exports = entry;
+  } else if (typeof define === 'function' && define.cmd) {
+    define(function(require, exports, module) {
+      module.exports = exports = entry;
+    })
+  } else if (typeof define === 'function' && define.amd) {
+    define('wechat', [], entry);
+  } else {
+    //浏览器端直接运行
+    global.wechat = global.wechat || entry;
+  }
+  
   if(typeof WeixinJSBridge === 'undefined'){
     if(doc.addEventListener) {
       doc.addEventListener('WeixinJSBridgeReady', ready, false);
@@ -130,5 +159,4 @@
   } else {
     ready();
   }
-
 })(window, document);
