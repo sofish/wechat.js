@@ -26,6 +26,7 @@ $ bower update
 wechat('friend', data, callback);           // 朋友
 wechat('timeline', data, callback);         // 朋友圈
 wechat('weibo', data, callback);            // 微博
+wechat('sendEmail', emailData);             // 发送邮件
 
 // 操作
 wechat('hideToolbar', callback);            // 隐藏底部菜单
@@ -36,12 +37,7 @@ wechat('scanQRCode');                       // 跳转到扫描二维码页面
 wechat('imagePreview', imgData, callback);  // 图片预览/查看大图
 // imgData = {
 //   current: 'linchao1.jpg',               // 要预览的当前张url
-//   urls: ['linchao1.jpg', 'linchao2.jpg'] //所有图片的url列表  
-// }
-wechat('sendEmail', emailData);             // 发送邮件
-// emailData = {
-//   title: "邮件标题",                       // 邮件标题
-//   content: "邮件内容"                      // 邮件内容
+//   urls: ['linchao1.jpg', 'linchao2.jpg'] // 所有图片的url列表
 // }
 
 wechat('network', callback);                // 查看用户当前网络

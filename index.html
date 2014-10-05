@@ -24,7 +24,7 @@
 <p><button onclick="closeWebView()">关闭webview</button></p>
 <p><button onclick="scanQRCode()">跳转到扫描二维码界面</button></p>
 <p><button onclick="imagePreview()">图片预览/查看大图</button></p>
-<p><button onclick="sendEmail()">发送邮件</button></p>
+<p><button onclick="sendEmail()">分享到邮件</button></p>
 
 <p><img src="http://ww4.sinaimg.cn/large/61b90cbegw1eknqctwzbhj2097097jrx.jpg" alt="sofish/wechat.js"/></p>
 
@@ -109,11 +109,7 @@ function imagePreview() {
 
 // 发送邮件
 function sendEmail() {
-  var emailData = {
-    title: "邮件标题：微信 js 库",
-    content: "邮件内容:这是用于处理微信分享的等小功能的 js 库"
-  };
-  wechat('sendEmail', emailData);
+  wechat('sendEmail', data, callback);
 }
 
 
