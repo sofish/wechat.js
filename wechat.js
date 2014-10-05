@@ -12,13 +12,13 @@
         friend: 'menu:share:appmessage',
         timeline: 'menu:share:timeline',
         weibo: 'menu:share:weibo',
-        email: 'sendEmail' // 分享到邮件
+        email: 'email' // 分享到邮件
       },
       actions: {
         friend: 'sendAppMessage',
         timeline: 'shareTimeline',
         weibo: 'shareWeibo',
-        email: 'sendEmail'
+        email: 'email'
       },
       direct: {
         network: 'getNetworkType',
@@ -89,7 +89,7 @@
 
       // Android 下有时候会需要 desc (*-.-)
       data.desc = data.title;
-    } else if(name === 'sendEmail') {
+    } else if(name === 'email') {
       data.content = data.desc + ' ' + data.link;
       return WeixinJSBridge.invoke('sendEmail', data, callback);
     }
