@@ -11,7 +11,7 @@
       events: {
         friend: 'menu:share:appmessage',
         timeline: 'menu:share:timeline',
-        weibo: 'menu:share:weibo',
+        weibo: 'menu:share:weibo'
       },
       actions: {
         friend: 'sendAppMessage',
@@ -67,17 +67,14 @@
       // network_type:edge 非wifi,包含3G/2G
       // network_type:fail 网络断开连接
       // network_type:wwan（2g或者3g）
-      if(name === 'network')
+      if(name === 'network') 
         return WeixinJSBridge.invoke(direct, {}, callback);
-      // 图片预览/查看大图
-      else if(name === 'imagePreview')
-        return WeixinJSBridge.invoke(direct, data, callback);
-      // 发送邮件
+      // 图片预览/查看大图 || 发送邮件
       // send_email:title_link_empty  标题或内容为空
       // send_email:title_too_long    标题过长
       // send_email:cancelled         取消发送
       // send_email:saved             邮件被保存
-      else if(name === 'sendEmail')
+      else if(name === 'imagePreview' || name === 'sendEmail')
         return WeixinJSBridge.invoke(direct, data, callback);
 
       return WeixinJSBridge.call(direct, callback);
