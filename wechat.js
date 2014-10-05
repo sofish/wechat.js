@@ -12,7 +12,7 @@
         friend: 'menu:share:appmessage',
         timeline: 'menu:share:timeline',
         weibo: 'menu:share:weibo',
-        email: 'sendEmail' // 发邮件
+        email: 'sendEmail' // 分享到邮件
       },
       actions: {
         friend: 'sendAppMessage',

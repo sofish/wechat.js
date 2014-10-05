@@ -26,7 +26,7 @@ $ bower update
 wechat('friend', data, callback);           // 朋友
 wechat('timeline', data, callback);         // 朋友圈
 wechat('weibo', data, callback);            // 微博
-wechat('sendEmail', emailData);             // 发送邮件
+wechat('sendEmail', emailData);             // 邮件分享
 
 // 操作
 wechat('hideToolbar', callback);            // 隐藏底部菜单
