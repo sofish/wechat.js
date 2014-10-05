@@ -23,16 +23,24 @@ $ bower update
 
 ```js
 // 分享
-wechat('friend', data, callback);     // 朋友
-wechat('timeline', data, callback);   // 朋友圈
-wechat('weibo', data, callback);      // 微博
+wechat('friend', data, callback);           // 朋友
+wechat('timeline', data, callback);         // 朋友圈
+wechat('weibo', data, callback);            // 微博
+wechat('email', data, callback);            // 邮件分享
 
 // 操作
-wechat('hideToolbar', callback);      // 隐藏底部菜单
-wechat('hideOptionMenu', callback);   // 隐藏右上角分享按钮
-wechat('showOptionMenu', callback);   // 显示右上角分享按钮
+wechat('hideToolbar', callback);            // 隐藏底部菜单
+wechat('hideOptionMenu', callback);         // 隐藏右上角分享按钮
+wechat('showOptionMenu', callback);         // 显示右上角分享按钮
+wechat('closeWebView');                     // 关闭webview
+wechat('scanQRCode');                       // 跳转到扫描二维码页面
+wechat('imagePreview', imgData, callback);  // 图片预览/查看大图
+// imgData = {
+//   current: 'picture1.jpg',               // 要预览的当前张url
+//   urls: ['picture1.jpg', 'picture2.jpg'] // 所有图片的url列表
+// }
 
-wechat('network', callback);          // 查看用户当前网络
+wechat('network', callback);                // 查看用户当前网络
 // 1. wifi
 // 2. edge 非 wifi,包含 3G/2G
 // 3. fail 网络断开连接
@@ -66,6 +74,12 @@ var data = {
   'link': '链接',
   'desc': '描述',
   'title': getTitle()
+};
+
+// 发送邮件
+var data = {
+    title: "邮件标题",
+    content: "邮件内容"
 };
 ```
 

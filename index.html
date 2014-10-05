@@ -21,6 +21,10 @@
 </p>
 
 <p><button onclick="toggle()">隐藏/显示分享按钮</button></p>
+<p><button onclick="closeWebView()">关闭webview</button></p>
+<p><button onclick="scanQRCode()">跳转到扫描二维码界面</button></p>
+<p><button onclick="imagePreview()">图片预览/查看大图</button></p>
+<p><button onclick="sendEmail()">分享到邮件</button></p>
 
 <p><img src="http://ww4.sinaimg.cn/large/61b90cbegw1eknqctwzbhj2097097jrx.jpg" alt="sofish/wechat.js"/></p>
 
@@ -61,6 +65,53 @@ function toggle(){
   wechat(action);
   show = !show;
 }
+
+// 关闭webview
+function closeWebView() {
+  wechat('closeWebView');
+}
+
+// 跳转到扫描二维码页面
+function scanQRCode() {
+  wechat('scanQRCode');
+}
+
+// 图片预览/查看大图
+function imagePreview() {
+  // 图片地址，恩，这部分漫画还有点意思
+  var imageUrls = [
+    "http://pic003.cnblogs.com/2010/66372/201010/2010100914201786.jpg",
+    "http://pic003.cnblogs.com/2010/66372/201010/2010100914202624.jpg",
+    "http://pic003.cnblogs.com/2010/66372/201010/2010100914203364.jpg",
+    "http://pic003.cnblogs.com/2010/66372/201010/2010100914204097.jpg",
+    "http://pic003.cnblogs.com/2010/66372/201010/2010100914204740.gif",
+    "http://pic003.cnblogs.com/2010/66372/201010/2010100914205649.jpg",
+    "http://pic003.cnblogs.com/2010/66372/201010/2010100914211050.gif",
+    "http://pic003.cnblogs.com/2010/66372/201010/2010100914211871.jpg",
+    "http://pic003.cnblogs.com/2010/66372/201010/2010100914212444.gif",
+    "http://pic003.cnblogs.com/2010/66372/201010/2010100914213091.jpg",
+    "http://pic003.cnblogs.com/2010/66372/201010/2010100914213952.gif",
+    "http://pic003.cnblogs.com/2010/66372/201010/2010100914214777.gif",
+    "http://pic003.cnblogs.com/2010/66372/201010/2010100914215454.gif",
+    "http://pic003.cnblogs.com/2010/66372/201010/2010100914220482.gif",
+    "http://pic003.cnblogs.com/2012/66372/201208/2012082923435810.gif",
+    "http://pic003.cnblogs.com/2012/66372/201208/2012082923440536.gif",
+    "http://pic003.cnblogs.com/2012/66372/201208/2012082923441776.gif"
+  ];
+
+  var imgData = {
+    current: imageUrls[0],
+    urls: imageUrls
+  };
+
+  wechat('imagePreview', imgData, callback);
+}
+
+// 发送邮件
+function sendEmail() {
+  wechat('email', data, callback);
+}
+
 
 </script>
 
