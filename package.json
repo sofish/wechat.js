@@ -1,6 +1,6 @@
 {
   "name": "wechat.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "wechat.js",
   "author": "sofish <sofish@icloud.com>",
   "description": "easy sharing on wechat http://sofish.github.io/wechat.js",
