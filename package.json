@@ -1,6 +1,6 @@
 {
   "name": "wechat.js",
-  "version": "0.1",
+  "version": "0.1.1",
   "main": "wechat.js",
   "author": "sofish <sofish@icloud.com>",
   "description": "easy sharing on wechat http://sofish.github.io/wechat.js",
@@ -20,5 +20,13 @@
     "type": "MIT",
     "url": "https://github.com/sofish/wechat.js/blob/master/license.txt"
   },
-  "readmeFilename": "readme.md"
+  "readmeFilename": "readme.md",
+  "scripts": {
+    "build": "node_modules/.bin/uglifyjs wechat.js --mangle --compress -o dist/wechat.min.js --source-map dist/wechat.min.js.map --source-map-url wechat.js",
+    "watch": "node_modules/.bin/rewatch wechat.js -c 'npm run build'"
+  },
+  "devDependencies": {
+    "uglify-js": "^2.4.15",
+    "rewatch": "~0.2.2"
+  }
 }
