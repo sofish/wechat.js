@@ -33,7 +33,9 @@
   };
 
   // 有些 data 是延时获取的，这时候应该支持传入 callback
-  Wechat.prototype._data = function(data) {
+  Wechat.prototype._data = function(data, name) {
+    if(!data) return {};
+    
     var tmp = {};
 
     for(var p in data) {
@@ -47,6 +49,21 @@
 
     delete tmp.app;
     delete tmp.img;
+
+    // 分享到微博的接口不同
+    if(name === 'weibo') {
+      tmp.content = tmp.desc;
+      tmp.url = tmp.link;
+
+    // 朋友圈的 title 是不显示的，直接拼接
+    } else if(name === 'timeline') {
+      tmp.title = tmp.title + ' - ' + data.desc;
+
+      // Android 下有时候会需要 desc (*-.-)
+      tmp.desc = tmp.title;
+    } else if(name === 'email') {
+      tmp.content = tmp.desc + ' ' + tmp.link;
+    }
 
     return tmp;
   };
@@ -77,28 +94,14 @@
 
       return WeixinJSBridge.call(direct, callback);
     }
-
-    // 分享到微博的接口不同
-    if(name === 'weibo') {
-      data.content = data.desc;
-      data.url = data.link;
-
-    // 朋友圈的 title 是不显示的，直接拼接
-    } else if(name === 'timeline') {
-      data.title = data.title + ' - ' + data.desc;
-
-      // Android 下有时候会需要 desc (*-.-)
-      data.desc = data.title;
-    } else if(name === 'email') {
-      data.content = data.desc + ' ' + data.link;
-      return WeixinJSBridge.invoke('sendEmail', data, callback);
-    }
+    
+    // Email 直接处理
+    if(name === 'email') return WeixinJSBridge.invoke('sendEmail', this._data(data, name), callback);
 
     var that = this;
-
     // 当 WeixinJSBridge 存在则直接绑定事件
     WeixinJSBridge.on(this.map.events[name], function() {
-      WeixinJSBridge.invoke(that.map.actions[name], data, callback);
+      WeixinJSBridge.invoke(that.map.actions[name], that._data(data, name), callback);
     });
   };
 
@@ -112,7 +115,7 @@
 
     this._make({
       name: name,
-      data: data ? this._data(data) : {},
+      data: data,
       callback: callback || noop
     });
 
