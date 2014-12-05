@@ -57,7 +57,7 @@
 
     // 朋友圈的 title 是不显示的，直接拼接
     } else if(name === 'timeline') {
-      tmp.title = tmp.title + ' - ' + data.desc;
+      tmp.title = tmp.title + ' - ' + tmp.desc;
 
       // Android 下有时候会需要 desc (*-.-)
       tmp.desc = tmp.title;
