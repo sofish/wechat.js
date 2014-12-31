@@ -39,13 +39,17 @@ var data = {
     return 'http://appled.cc/candy-theme-flat/images/share.jpg'
   },
   link: 'http://sofish.github.io/wechat.js/',
-  desc: '用于处理微信分享的等小功能的 js 库',
-  title: 'wechat.js'
+  desc: '用于处理微信分享的等小功能的 js 库。',
+  title: 'Wechat.js'
 };
 
 var callback = function(res) {
   alert(JSON.stringify(res));
 };
+
+// TODO: 微信 api 2014 年最后一台调整 api 让原来的 api 不能用
+//  当只有一个参数，并且是 `data` 的话，执行这个 hack
+wechat(data);
 
 // 查看用户当前网络
 // TODO: 这返回的数据好恶心

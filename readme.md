@@ -2,6 +2,12 @@
 
 > 目前微信暂停了旧版 JS API 的使用，如果你的 APP 受到影响，可以尝试下面的方式来让这个库正常运行：[申请 JS API 使用](https://github.com/sofish/wechat.js/issues/15#issuecomment-68430034)。如果有更新，我会删掉这个提示的。
 
+```js
+// TODO: 微信 api 2014 年最后一台调整 api 让原来的 api 不能用
+//  当只有一个参数，并且是 `data` 的话，执行这个 hack
+//  减少损失
+wechat(data);
+```
 
 # wechat.js
 
