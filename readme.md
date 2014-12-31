@@ -1,8 +1,6 @@
 # 重要提示：
 
-> 目前微信暂停了旧版 JS API 的使用，如果你的 APP 受到影响，可以尝试下面的方式来让这个库正常运行：[申请 JS API 使用](https://github.com/sofish/wechat.js/issues/15#issuecomment-68430034) 。
-> 
-> 如果有更新，我会删掉这个提示的。
+> 目前微信暂停了旧版 JS API 的使用，如果你的 APP 受到影响，可以尝试下面的方式来让这个库正常运行：[申请 JS API 使用](https://github.com/sofish/wechat.js/issues/15#issuecomment-68430034)。如果有更新，我会删掉这个提示的。
 
 
 # wechat.js
