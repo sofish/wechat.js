@@ -69,7 +69,7 @@ var data = {
 };
 
 // 假设我们在一个单页应用，title 可能是 js 在数据载入后才有的，那么可以这样来：
-var getTitile = function() {
+var getTitle = function() {
   return document.title;
 };
 
