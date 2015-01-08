@@ -1,13 +1,9 @@
 # 重要提示：
 
-> 目前微信暂停了旧版 JS API 的使用，如果你的 APP 受到影响，可以尝试下面的方式来让这个库正常运行：[申请 JS API 使用](https://github.com/sofish/wechat.js/issues/15#issuecomment-68430034)。如果有更新，我会删掉这个提示的。
+目前，新版的微信 js 出来了，你可能暂时不需要这个版本了。详情见：[微信 JSSDK 说明](http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html#.E5.9B.BE.E5.83.8F.E6.8E.A5.E5.8F.A3)。这个版本非常强大，可以传图图片、语音，同时也有更高的要求，需要签名。
 
-```js
-// TODO: 微信 api 2014 年最后一台调整 api 让原来的 api 不能用
-//  当只有一个参数，并且是 `data` 的话，执行这个 hack
-//  减少损失
-wechat(data);
-```
+
+----------
 
 # wechat.js
 

@@ -105,21 +105,9 @@
     });
   };
 
-  Wechat.prototype.mini = function(data) {
-    // shit the develop team of wechat api
-    var data = this._data(data);
-    document.title = data.title + ' - ' + data.desc;
-
-    return this;
-  };
-
   // 添加监听
   Wechat.prototype.on = function(name, data, callback) {
     if(!name) return;
-
-    // TODO: 微信 api 2014 年最后一台调整 api 让原来的 api 不能用
-    // 这里做一个 hack
-    if(arguments.length === 1) return this.mini(arguments[0]);
 
     if(typeof data === 'function') {
       callback = data;
